@@ -357,7 +357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7567756081242636122
 Transform:
   m_ObjectHideFlags: 0
@@ -447,7 +447,8 @@ MonoBehaviour:
   snaketail_prefab: {fileID: 8763770074022462855, guid: b3c4b93fc0bf17f4794ee050de452fb5, type: 3}
   speedHorizontal: 250
   speedVertical: 250
-  Points: []
+  points: []
+  rotationTail: []
 --- !u!54 &9009418279413260557
 Rigidbody:
   m_ObjectHideFlags: 0
