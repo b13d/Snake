@@ -8,9 +8,14 @@ public class Score : MonoBehaviour
     int score;
     public TextMeshProUGUI scoreMesh;
     public TextMeshProUGUI recordMesh;
+/*    public SpriteRenderer appleScore;
+    public SpriteRenderer cupScore;*/
+
 
     void Awake()
     {
+        //appleScore.size = new Vector2(0.5f, 0.5f);
+
         if (PlayerPrefs.HasKey("score"))
         {
             PlayerPrefs.SetInt("score", score);
@@ -32,7 +37,7 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        scoreMesh.text = "Score = " + PlayerPrefs.GetInt("score");
-        recordMesh.text = "Record = " + PlayerPrefs.GetInt("record");
+        scoreMesh.text = "<sprite=\"Apple\" index=0>" + PlayerPrefs.GetInt("score");
+        recordMesh.text = "" + PlayerPrefs.GetInt("record");
     }
 }

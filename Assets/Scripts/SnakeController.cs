@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
+using TMPro;
 
 public class SnakeController : MonoBehaviour
 {
     bool isPlaying = true;
-
-
-    public const float MOVE_SPEED = 1f;
 
     private List<Transform> snaketail;
     [SerializeField] Transform snaketail_prefab;
@@ -150,23 +148,37 @@ public class SnakeController : MonoBehaviour
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Block")
         {
             isPlaying = false;
+            p_rb.Sleep();
 
             GameObject message = GameObject.Find("CanvasMessage");
             var parent = message.transform;
-            parent = parent.Find("MenuMessage");
 
+            parent = parent.Find("MenuMessage");
+            var FinalScore = parent.Find("FinalScore");
+
+            var FinalText = FinalScore.gameObject.GetComponent<TextMeshProUGUI>();
+            
             var parentGameObject = parent.gameObject;
 
             // вызов метода, для смены данных на табло
-            ScoreEnd();
+            ScoreEnd(FinalText);
 
             parentGameObject.SetActive(true);
             
         }
     }
 
-    void ScoreEnd()
+    void ScoreEnd(TextMeshProUGUI FinalText)
     {
+        var scorePlayer = PlayerPrefs.GetInt("score");
+        var recordPlayer = PlayerPrefs.GetInt("record");
+
+        if (scorePlayer == recordPlayer)
+        {
+            FinalText.text = "NEW RECORD\n " + recordPlayer;
+        }
+        else
+            FinalText.text = "SCORE\n " + scorePlayer;
     }
 
 

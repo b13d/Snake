@@ -27,7 +27,7 @@ public class SpawnApple : MonoBehaviour
         }
         else
         {
-            Instantiate(apple, new Vector3(Random.Range(-14f, 14f), Random.Range(-4.30f,4.30f)), Quaternion.Euler(-117,-60,12));
+            Instantiate(apple, new Vector3(Random.Range(-9.30f, 9.30f), Random.Range(-5.60f,4.70f)), Quaternion.Euler(-117,-60,12));
         }
     }
 }
