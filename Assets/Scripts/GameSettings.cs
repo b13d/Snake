@@ -30,10 +30,21 @@ public class GameSettings : MonoBehaviour
         var scoreText = score.GetComponent<TextMeshProUGUI>();
         var record = GameObject.Find("RecordText");
         var recordText = record.GetComponent<TextMeshProUGUI>();
+
         if (Screen.width > 1280)
+        {
+            recordText.fontSize = 60;
+            scoreText.fontSize = 60;
+        }
+        else if (Screen.width > 1279 && Screen.width > 1024)
         {
             recordText.fontSize = 45;
             scoreText.fontSize = 45;
+        }
+        else
+        {
+            recordText.fontSize = 25;
+            scoreText.fontSize = 25;
         }
     }
 
@@ -43,10 +54,16 @@ public class GameSettings : MonoBehaviour
         var scoreText = score.GetComponent<TextMeshProUGUI>();
         var record = GameObject.Find("RecordText");
         var recordText = record.GetComponent<TextMeshProUGUI>();
+        Debug.Log(Screen.width);
         if (Screen.width > 1280)
         {
             recordText.fontSize = 60;
             scoreText.fontSize = 60;
+        }
+        else if(Screen.width > 1279 && Screen.width > 1024)
+        {
+            recordText.fontSize = 45;
+            scoreText.fontSize = 45;
         }
         else
         {

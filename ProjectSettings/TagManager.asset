@@ -7,6 +7,7 @@ TagManager:
   - Apple
   - Block
   - Message
+  - PlayerTail
   layers:
   - Default
   - TransparentFX

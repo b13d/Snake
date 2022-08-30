@@ -38,6 +38,6 @@ public class Score : MonoBehaviour
     private void Update()
     {
         scoreMesh.text = "<sprite=\"Apple\" index=0>" + PlayerPrefs.GetInt("score");
-        recordMesh.text = "" + PlayerPrefs.GetInt("record");
+        recordMesh.text = "<sprite=\"Cup\" name=\"Cup_0\">" + PlayerPrefs.GetInt("record");
     }
 }

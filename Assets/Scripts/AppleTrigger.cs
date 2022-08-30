@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AppleTrigger : MonoBehaviour
 {
+    int i;
     Score scoreGame;
     SnakeController snakeController;
     
@@ -18,11 +19,21 @@ public class AppleTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (i > 0)
         {
-            scoreGame.SaveScore();
-            snakeController.AddTail();
-            Destroy(this.gameObject);
+
         }
+        else
+        {
+            if (other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerTail")
+            {
+                scoreGame.SaveScore();
+                snakeController.AddTail();
+                Destroy(this.gameObject);
+                i++;
+            }
+        }
+            
+
     }
 }

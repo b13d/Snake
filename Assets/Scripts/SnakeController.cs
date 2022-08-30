@@ -10,9 +10,9 @@ public class SnakeController : MonoBehaviour
 
     private List<Transform> snaketail;
     [SerializeField] Transform snaketail_prefab;
-    [SerializeField] Score score;
-    
 
+    public int value = 5;
+    public float distanse = 1;
 
     Vector3 startPosition;
     public float speedHorizontal = 250.0f;
@@ -22,25 +22,30 @@ public class SnakeController : MonoBehaviour
 
 
     static string symbol;
-    Vector3 direction;
+    Vector3 direction; // mb delete?
 
     Rigidbody p_rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        snaketail = new List<Transform>(); // все хвосты, включая голову
+        snaketail = new List<Transform>(); // all tails, including the head
         snaketail.Add(this.transform);
         startPosition = snaketail[0].position;
 
         p_rb = GetComponent<Rigidbody>();
     }
-    public void AddTail() // Добавляем хвост
+    public void AddTail() // Add tail
     {
         if (isPlaying == true)
         {
             Transform tail = Instantiate(this.snaketail_prefab);
-            tail.position = snaketail[snaketail.Count - 1].position;
+
+            if (startPosition == snaketail[0].position)
+            {
+                tail.position = snaketail[snaketail.Count - 1].position + new Vector3(2.5f,0);
+            }
+            tail.position = snaketail[snaketail.Count - 1].position + (direction * 6);
 
             snaketail.Add(tail);
         }
@@ -52,22 +57,22 @@ public class SnakeController : MonoBehaviour
         {
             float dist = Vector3.Distance(startPosition, transform.position);
 
-            if (dist > 1) // Ставлю точку(wayPoint, на определенном расстоянии)
+            if (dist > 0.1) // I put a point (wayPoint, at a certain distance)
             {
                 startPosition = transform.position;
                 points.Add(startPosition);
                 rotationTail.Add(transform.rotation);
             }
-            Debug.Log(points.Count);
+            //Debug.Log(points.Count);
 
-            if (points.Count > 100)
+            if (points.Count > 300) // > 100
             {
                 points.RemoveRange(0, 50);
             }
 
         }
     }
-
+    
     private void LateUpdate()
     {
         if (isPlaying == true)
@@ -75,21 +80,40 @@ public class SnakeController : MonoBehaviour
 
             for (int i = 1; i < snaketail.Count; i++)
             {
-                // Процесс добавления хвоста и его поворот
-                Vector3 positionTail = points[points.Count - ( i + 1 )]; 
-                snaketail[i].position = Vector3.MoveTowards(points[points.Count - (i + 2)], positionTail, 400);
-                snaketail[i].rotation = rotationTail[rotationTail.Count - (i + 1)];
+                // The process of adding a tail and turning it
+                if (i == 1)
+                {
+                    Vector3 positionTail = points[points.Count - (i * value + 3)]; // i + 1
 
+                    snaketail[i].position = Vector3.Lerp(points[points.Count - (i * 3)], positionTail, distanse); // i + 2
+                    snaketail[i].rotation = rotationTail[rotationTail.Count - (i + 1)];
+                    //Debug.Log("First = "+positionTail);
+
+                }
+                else
+                {
+                    Vector3 positionTail = points[points.Count - (i * value + 3)]; // i + 1
+
+                    snaketail[i].position = Vector3.Lerp(snaketail[i - 1].position, positionTail, distanse); // i + 2
+                    snaketail[i].rotation = rotationTail[rotationTail.Count - (i + 1)];
+                    //Debug.Log("Second = "+positionTail);
+                }
+
+                /*                snaketail[i].position = Vector3.MoveTowards(points[points.Count - (i * 3)], positionTail, 400); // i + 2
+                                snaketail[i].rotation = rotationTail[rotationTail.Count - (i + 1)];*/
+                var boxColliderFirstTail = snaketail[1].GetComponent<BoxCollider>();
+                boxColliderFirstTail.enabled = false;
             }
-
         }
+
+        //Debug.Log(direction);
     }
 
 
     void Update()
     {
 
-        // Здесь нужно перехватить событие, нажатие кнопки, и получить его название
+        // Here you need to intercept the event, click the button, and get its nameе
         if (isPlaying == true)
         {
             if (Input.GetKeyDown(KeyCode.W) == true && (symbol != "W" && symbol != "S"))
@@ -101,7 +125,7 @@ public class SnakeController : MonoBehaviour
                 symbol = "W";
                 p_rb.constraints = RigidbodyConstraints.FreezePositionX;
                 p_rb.AddForce(transform.up * speedVertical);
-                direction = transform.up;
+                direction = new Vector3(0, 1, 0);
             }
 
             if (Input.GetKeyDown(KeyCode.S) == true && (symbol != "S" && symbol != "W"))
@@ -111,7 +135,7 @@ public class SnakeController : MonoBehaviour
                 symbol = "S";
                 p_rb.constraints = RigidbodyConstraints.FreezePositionX;
                 p_rb.AddForce(transform.up * speedVertical);
-                direction = transform.up;
+                direction = new Vector3(0, -1, 0);
             }
 
             if (Input.GetKeyDown(KeyCode.D) == true && (symbol != "D" && symbol != "A"))
@@ -124,7 +148,7 @@ public class SnakeController : MonoBehaviour
                 symbol = "D";
                 p_rb.constraints = RigidbodyConstraints.FreezePositionY;
                 p_rb.AddForce(transform.up * speedHorizontal);
-                direction = transform.up;
+                direction = new Vector3(1, 0, 0);
 
 
 
@@ -138,14 +162,14 @@ public class SnakeController : MonoBehaviour
                 symbol = "A";
                 p_rb.constraints = RigidbodyConstraints.FreezePositionY;
                 p_rb.AddForce(transform.up * speedHorizontal);
-                direction = transform.up;
+                direction = new Vector3(-1, 0, 0);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "PlayerTail" || other.gameObject.tag == "Block")
         {
             isPlaying = false;
             p_rb.Sleep();
@@ -157,14 +181,14 @@ public class SnakeController : MonoBehaviour
             var FinalScore = parent.Find("FinalScore");
 
             var FinalText = FinalScore.gameObject.GetComponent<TextMeshProUGUI>();
-            
+
             var parentGameObject = parent.gameObject;
 
             // вызов метода, для смены данных на табло
             ScoreEnd(FinalText);
 
             parentGameObject.SetActive(true);
-            
+
         }
     }
 
