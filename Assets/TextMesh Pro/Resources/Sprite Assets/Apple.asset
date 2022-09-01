@@ -51,14 +51,14 @@ MonoBehaviour:
       m_Width: 1319.0095
       m_Height: 1661.9683
       m_HorizontalBearingX: -659.50476
-      m_HorizontalBearingY: 1536.39
+      m_HorizontalBearingY: 1287
       m_HorizontalAdvance: 951
     m_GlyphRect:
       m_X: 362
       m_Y: 132
       m_Width: 1319
       m_Height: 1661
-    m_Scale: 1
+    m_Scale: 1.42
     m_AtlasIndex: 0
     sprite: {fileID: -1059750227, guid: 62b9d04b0ef4e77429897f87779c3969, type: 3}
   spriteInfoList: []

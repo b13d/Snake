@@ -6,7 +6,7 @@ using TMPro;
 
 public class SnakeController : MonoBehaviour
 {
-    bool isPlaying = true;
+    public bool isPlaying = true;
 
     private List<Transform> snaketail;
     [SerializeField] Transform snaketail_prefab;
@@ -22,13 +22,14 @@ public class SnakeController : MonoBehaviour
 
 
     static string symbol;
-    Vector3 direction; // mb delete?
+    public Vector3 direction; // mb delete?
 
     Rigidbody p_rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        symbol = null;
         snaketail = new List<Transform>(); // all tails, including the head
         snaketail.Add(this.transform);
         startPosition = snaketail[0].position;
@@ -116,7 +117,7 @@ public class SnakeController : MonoBehaviour
         // Here you need to intercept the event, click the button, and get its nameå
         if (isPlaying == true)
         {
-            if (Input.GetKeyDown(KeyCode.W) == true && (symbol != "W" && symbol != "S"))
+            if ((Input.GetKeyDown(KeyCode.W) == true || Input.GetKeyDown(KeyCode.UpArrow) == true) && (symbol != "W" && symbol != "S"))
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 //transform.Rotate(new Vector3(0, 0, 0), Space.Self);
@@ -128,7 +129,7 @@ public class SnakeController : MonoBehaviour
                 direction = new Vector3(0, 1, 0);
             }
 
-            if (Input.GetKeyDown(KeyCode.S) == true && (symbol != "S" && symbol != "W"))
+            if ((Input.GetKeyDown(KeyCode.S)  == true || Input.GetKeyDown(KeyCode.DownArrow) == true) && (symbol != "S" && symbol != "W"))
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
 
@@ -138,7 +139,7 @@ public class SnakeController : MonoBehaviour
                 direction = new Vector3(0, -1, 0);
             }
 
-            if (Input.GetKeyDown(KeyCode.D) == true && (symbol != "D" && symbol != "A"))
+            if ((Input.GetKeyDown(KeyCode.D) == true || Input.GetKeyDown(KeyCode.RightArrow) == true) && (symbol != "D" && symbol != "A"))
             {
 
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
@@ -154,7 +155,7 @@ public class SnakeController : MonoBehaviour
 
             }
 
-            if (Input.GetKeyDown(KeyCode.A) == true && (symbol != "A" && symbol != "D"))
+            if ((Input.GetKeyDown(KeyCode.A) == true || Input.GetKeyDown(KeyCode.LeftArrow) == true) && (symbol != "A" && symbol != "D"))
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
                 //transform.Rotate(new Vector3( 0, 0, 90f), Space.World);
