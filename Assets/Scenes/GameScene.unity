@@ -5136,8 +5136,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="Cup" name="Cup_0">
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 590f143de3f57fe4a9e07ec8429c3ed0, type: 2}
+  m_sharedMaterial: {fileID: 729103748449882563, guid: 590f143de3f57fe4a9e07ec8429c3ed0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5731,8 +5731,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6062,8 +6062,8 @@ MonoBehaviour:
 
     100'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 590f143de3f57fe4a9e07ec8429c3ed0, type: 2}
+  m_sharedMaterial: {fileID: 729103748449882563, guid: 590f143de3f57fe4a9e07ec8429c3ed0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6152,7 +6152,7 @@ GameObject:
   - component: {fileID: 327640818}
   m_Layer: 5
   m_Name: ButtonRestart
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6332,8 +6332,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="Apple" index=0>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 590f143de3f57fe4a9e07ec8429c3ed0, type: 2}
+  m_sharedMaterial: {fileID: 729103748449882563, guid: 590f143de3f57fe4a9e07ec8429c3ed0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6422,7 +6422,7 @@ GameObject:
   - component: {fileID: 409585386}
   m_Layer: 5
   m_Name: ButtonRestart
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6441,7 +6441,7 @@ RectTransform:
   m_Children:
   - {fileID: 556108119}
   m_Father: {fileID: 1840386684}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6557,7 +6557,7 @@ GameObject:
   - component: {fileID: 509893008}
   m_Layer: 5
   m_Name: ButtonMenu
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6576,7 +6576,7 @@ RectTransform:
   m_Children:
   - {fileID: 1736635572}
   m_Father: {fileID: 1840386684}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6689,6 +6689,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6775,6 +6776,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apple: {fileID: 7236803724189221905, guid: 7c27e0552c3a68b47a906a5be8a6c70a, type: 3}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ba2cd694626cb4882325ef173bf9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &556108118
 GameObject:
   m_ObjectHideFlags: 0
@@ -6835,8 +6848,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7170,7 +7183,7 @@ GameObject:
   - component: {fileID: 1124461860}
   m_Layer: 5
   m_Name: ButtonReturn
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7449,8 +7462,8 @@ MonoBehaviour:
 
     Over'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7683,8 +7696,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7980,8 +7993,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8087,8 +8100,8 @@ Transform:
   - {fileID: 895085886}
   - {fileID: 1166978644}
   - {fileID: 327556137}
-  - {fileID: 509893004}
   - {fileID: 409585382}
+  - {fileID: 509893004}
   m_Father: {fileID: 963124971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8289,8 +8302,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Return
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8379,7 +8392,7 @@ GameObject:
   - component: {fileID: 1933053700}
   m_Layer: 5
   m_Name: ButtonMenu
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8596,8 +8609,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: pause
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
+  m_sharedMaterial: {fileID: 3419018833460691556, guid: 66f8e27c0971cbc47a6cf8dcaf84d38a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

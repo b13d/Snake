@@ -44,6 +44,10 @@ public class BeginGame : MonoBehaviour
                 gameSettings.EscapeExitMenu();
                 i = 0;
             }
+            else if (button.name == "ButtonExit")
+            {
+                Application.Quit();
+            }
             else
             {
                 SceneManager.LoadScene(1);
